@@ -1,8 +1,8 @@
 var x1 = 0;
 var x2;
-
 var scrollSpeed = 2;
-
+let attuale = { x: 50, y: 50 };
+let angle = 0;
 class Game {
   constructor() {
     this.background = new Background();
@@ -64,10 +64,18 @@ class Player {
     this.h = 30;
     this.y = 50;
     this.speed = 5.5;
+    this.angle = angle;
   }
 
   draw() {
+    attuale.x += Math.cos(angle);
+    attuale.y += Math.sin(angle);
+    translate(attuale.x, attuale.y);
+    push();
+    rotate(angle);
+    imageMode(CENTER);
     image(this.image, this.x, this.y, 100, 70);
+    pop();
   }
   moveRight() {
     if (this.x > windowWidth) {
@@ -89,6 +97,10 @@ class Player {
     if (this.y > windowHeight) {
       this.y = 0;
     } else this.y += 50;
+  }
+  rotate() {
+    console.log("rotating");
+    angle += 0.1;
   }
 }
 

@@ -90,6 +90,11 @@ class Player {
       this.y = 0;
     } else this.y += 50;
   }
+  rotate() {
+    translate(xPosition, yPosition);
+    imageMode(CENTER);
+    rotate(500);
+  }
 }
 
 class Enemy {

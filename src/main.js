@@ -21,4 +21,7 @@ function keyPressed() {
   if (keyCode === 40) {
     game.player.moveDown();
   }
+  if (keyCode === 32) {
+    game.player.rotate();
+  }
 }
